@@ -1,0 +1,30 @@
+{
+  "slug": "kaski-uvex",
+  "title": "Kaski jeździeckie Uvex — bezpieczeństwo klasy premium | Fenix Horse",
+  "metaDescription": "Kaski jeździeckie Uvex — niemiecka technologia ochrony głowy dla jeźdźców. Sprawdź, gdzie kupić stacjonarnie w Polsce.",
+  "badge": "Oficjalny dystrybutor w Polsce",
+  "heroTitle": "Kaski jeździeckie Uvex",
+  "heroTagline": "Niemiecka precyzja, która chroni to, co najcenniejsze. Wybierz kask, któremu ufają jeźdźcy na całym świecie.",
+  "ctaLabel": "Znajdź sklep w pobliżu",
+  "productHeading": "Dlaczego Uvex?",
+  "productDescription": "<p>Uvex projektuje i produkuje kaski w Niemczech od ponad 90 lat — te same technologie chronią sportowców olimpijskich, narciarzy i jeźdźców. Każdy kask przechodzi testy przewyższające normę VG1, a systemy regulacji IAS i monomatic zapewniają idealne dopasowanie jednym ruchem.</p><p>W ofercie Fenix Horse znajdziesz pełną gamę: od modeli treningowych exxential, przez bestsellerowe suxxeed, po topowe elexxion z wentylacją turniejową.</p>",
+  "features": [
+    { "title": "Certyfikat VG1 + testy własne", "text": "Ochrona przewyższająca europejskie normy bezpieczeństwa." },
+    { "title": "System IAS 3D", "text": "Milimetrowa regulacja obwodu i wysokości — kask dopasowany jak szyty na miarę." },
+    { "title": "Waga od 380 g", "text": "Technologia in-mould: lekkość bez kompromisów w ochronie." },
+    { "title": "Wentylacja climazone", "text": "Chłodna głowa nawet podczas letnich zawodów." }
+  ],
+  "brandHeading": "Fenix Horse — 70 lat w jeździectwie",
+  "brandDescription": "<p>Jesteśmy hurtownią artykułów jeździeckich z tradycjami sięgającymi 1945 roku. Reprezentujemy w Polsce ponad 10 światowych marek — od Sprenger po Carr &amp; Day &amp; Martin — i zaopatrujemy sklepy jeździeckie w całym kraju.</p><p>Kupując u naszych partnerów, masz pewność oryginalnego produktu, pełnej gwarancji i fachowego doradztwa przy doborze rozmiaru.</p>",
+  "storesHeading": "Gdzie kupić kaski Uvex?",
+  "storesIntro": "Przymierz i kup w jednym z autoryzowanych sklepów jeździeckich: <em>(dane przykładowe — demo)</em>",
+  "stores": [
+    { "name": "Sklep Jeździecki Galop", "address": "ul. Przykładowa 12, Warszawa", "phone": "+48 600 000 001", "lat": 52.2297, "lng": 21.0122 },
+    { "name": "Equi-Sport Kraków", "address": "ul. Wzorcowa 5, Kraków", "phone": "+48 600 000 002", "lat": 50.0647, "lng": 19.945 },
+    { "name": "Stajnia i Siodlarnia Mustang", "address": "ul. Testowa 8, Poznań", "phone": "+48 600 000 003", "lat": 52.4064, "lng": 16.9252 },
+    { "name": "Horse Point Wrocław", "address": "ul. Demonstracyjna 3, Wrocław", "phone": "+48 600 000 004", "lat": 51.1079, "lng": 17.0385 },
+    { "name": "Jeździec Gdańsk", "address": "ul. Przykładna 21, Gdańsk", "phone": "+48 600 000 005", "lat": 54.352, "lng": 18.6466 },
+    { "name": "Tack Shop Silesia", "address": "ul. Modelowa 7, Katowice", "phone": "+48 600 000 006", "lat": 50.2649, "lng": 19.0238 }
+  ],
+  "footerNote": "Fenix Horse Sp. z o.o. — Hurtownia Artykułów Jeździeckich · fenix.net.pl"
+}
