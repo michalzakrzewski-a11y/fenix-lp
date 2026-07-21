@@ -14,7 +14,7 @@ const storesSectionTpl = (data) => `
     <div class="stores-grid">
       <div id="map"></div>
       <div class="store-list">${(data.stores || []).map(s =>
-        `<div class="store"><h3>${s.name}</h3><p>${s.address}</p><a href="tel:${s.phone.replace(/\s/g, '')}">${s.phone}</a></div>`
+        `<div class="store"><h3>${s.name}</h3><p>${s.address}</p><a href="tel:${s.phone.replace(/\s/g, '')}">${s.phone}</a>${s.email ? ` · <a href="mailto:${s.email}">${s.email}</a>` : ''}</div>`
       ).join('\n')}</div>
     </div>
   </div>
@@ -29,7 +29,7 @@ const map = L.map('map', {
   zoomAnimation: false, fadeAnimation: false, markerZoomAnimation: false,
   scrollWheelZoom: false,           // kółko myszy przewija stronę, nie zoomuje mapy
   dragging: !L.Browser.mobile       // na telefonie strona przewija się palcem nad mapą
-}).setView([52.1, 19.3], 6);
+});
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
@@ -37,6 +37,7 @@ const markers = stores.map(s =>
   L.marker([s.lat, s.lng]).addTo(map)
     .bindPopup(\`<b>\${s.name}</b><br>\${s.address}<br><a href="tel:\${s.phone.replace(/\\s/g,'')}">\${s.phone}</a>\`)
 );
+map.fitBounds(L.featureGroup(markers).getBounds().pad(0.12));
 document.querySelectorAll('.store').forEach((el, i) => {
   el.addEventListener('click', () => {
     map.setView([stores[i].lat, stores[i].lng], 13);
@@ -79,6 +80,7 @@ for (const file of files) {
     .replaceAll('{{galleryHtml}}', galleryHtml)
     .replaceAll('{{featuresHtml}}', featuresHtml)
     .replaceAll('{{tablesHtml}}', tablesHtml)
+    .replaceAll('{{heroNoteHtml}}', data.heroNote ? `<p class="hero-note">${data.heroNote}</p>` : '')
     .replaceAll('{{ctaHref}}', data.ctaHref || (hasStores ? '#sklepy' : 'https://fenix.net.pl'))
     .replaceAll('{{storesSection}}', hasStores ? storesSectionTpl(data) : '')
     .replaceAll('{{mapScript}}', hasStores ? mapScriptTpl(data) : '');

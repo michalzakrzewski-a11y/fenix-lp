@@ -9,8 +9,8 @@
   "heroTagline": "Zaawansowany naukowo suplement wspierający zdrowie żołądka i jelit oraz prawidłowe trawienie konia. Postbiotyki, prebiotyki i witaminy z grupy B — w smacznej, jabłkowej formule.",
   "heroImage": "/assets/nutri-gard-packshot.jpg",
   "heroImageAlt": "Foran Nutri-Gard — opakowanie",
-  "ctaHref": "https://fenix.net.pl/foran/foran-nutri-gard-suplement-w-proszku-wspomagajacy-funkcjonowanie-ukladu-trawienn.html",
-  "ctaLabel": "Kup w Fenix Horse",
+  "ctaLabel": "Znajdź sklep w pobliżu",
+  "heroNote": "Masz pytania? Zadzwoń: <a href=\"tel:+48887500749\">+48 887 500 749</a> lub napisz: <a href=\"mailto:info@fenix.net.pl\">info@fenix.net.pl</a>",
   "productHeading": "Kompleksowa ochrona układu trawiennego",
   "productDescription": "<p>Układ pokarmowy konia jest wyjątkowo wrażliwy — stajenne utrzymanie, pasze treściwe i ograniczony dostęp do pastwiska sprzyjają zaburzeniom trawienia, spadkom apetytu i kondycji. Nutri-Gard powstał, by wspierać zdrowie żołądka i jelita grubego każdego dnia.</p><p>Formuła łączy postbiotyk nowej generacji z prebiotykami, pektyną, błonnikiem owsianym oraz aminokwasami i witaminami z grupy B. Produkt w proszku o smaku jabłkowym — podawany na sucho lub z wodą, chętnie pobierany nawet przez wybredne konie.</p><p>Opakowania: <strong>1,2 kg</strong> (ok. 30 dni suplementacji konia) oraz <strong>3 kg</strong>. Produkt bezpieczny dla koni startujących w zawodach.</p>",
   "features": [
@@ -53,12 +53,25 @@
     }
   ],
   "gallery": [
-    { "src": "/assets/nutri-gard-square.jpg", "alt": "Foran Nutri-Gard — korzyści produktu" },
-    { "src": "/assets/nutri-gard-gallery.jpg", "alt": "Foran Nutri-Gard — zastosowanie" }
+    { "src": "/assets/nutri-gard-opakowania.jpg", "alt": "Foran Nutri-Gard — opakowania 3 kg i 1,2 kg" }
   ],
   "brandHeading": "Foran Equine × Fenix Horse",
   "brandDescription": "<p>Foran Equine to irlandzki producent suplementów dla koni z ponad 40-letnim doświadczeniem, zaufany przez czołowych hodowców, trenerów i jeźdźców na całym świecie. Produkty Foran powstają zgodnie z rygorystycznymi normami jakości i bezpieczeństwa antydopingowego.</p><p>Fenix Horse — hurtownia artykułów jeździeckich z tradycjami od 1945 roku — jest oficjalnym dystrybutorem Foran Equine w Polsce. Kupując u nas i u naszych partnerów, masz pewność oryginalnego produktu i fachowego doradztwa.</p>",
   "storesHeading": "Gdzie kupić Nutri-Gard?",
-  "storesIntro": "Kup w jednym z autoryzowanych sklepów jeździeckich:",
-  "stores": []
+  "storesIntro": "Kup u jednego z naszych partnerów — kliknij punkt na liście, aby zobaczyć go na mapie:",
+  "stores": [
+    { "name": "Mustardos", "address": "Plac Mirowski 1/31, 00-138 Warszawa", "phone": "608 728 900", "email": "mustardospl@gmail.com", "lat": 52.23884, "lng": 20.99737 },
+    { "name": "Sklep Karina (P.P.H.U. Bago)", "address": "ul. Braci Wagów 1, 02-791 Warszawa", "phone": "22 649 02 23", "email": "kontakt@sklepkarina.pl", "lat": 52.13888, "lng": 21.05186 },
+    { "name": "Sklep Jeździecki Cavalo", "address": "Człekówka 96, 05-340 Kołbiel", "phone": "660 379 340", "email": "sklep@cavalo.pl", "lat": 52.0471, "lng": 21.43479 },
+    { "name": "Sklep Jeździecki PK (Rymarz)", "address": "ul. Starołęcka 18A, 61-361 Poznań", "phone": "574 793 353", "email": "faktury@sklepjezdzieckipk.pl", "lat": 52.37371, "lng": 16.93682 },
+    { "name": "Salon Jeździecki Pegaz", "address": "ul. Zamkowa 2, 62-310 Pyzdry", "phone": "696 087 750", "email": "salonpegaz@wp.pl", "lat": 52.167, "lng": 17.69029 },
+    { "name": "GNL Sp. z o.o.", "address": "ul. Brukowa 10/3, 91-341 Łódź", "phone": "512 447 328", "email": "gnl@gnl.pl", "lat": 51.79834, "lng": 19.40827 },
+    { "name": "Dobry-Koń (Kron Electric)", "address": "Jaksin 31, 57-160 Borów", "phone": "793 713 773", "email": "sklep@dobry-kon.pl", "lat": 50.84702, "lng": 17.07219 },
+    { "name": "Adrian Obiegły Equestrian", "address": "ul. Wrocławska 30, 56-400 Smardzów", "phone": "608 308 174", "email": "info@obiegly.pl", "lat": 51.20126, "lng": 17.32 },
+    { "name": "Stajnia Jaszkowo", "address": "Jaszkowo 16, 63-112 Brodnica", "phone": "789 375 263", "email": "stajniajaszkowo@gmail.com", "lat": 52.14188, "lng": 16.97821 },
+    { "name": "Pieluszyńska Sp. z o.o.", "address": "Zajączkowo 48A, 62-045 Pniewy", "phone": "605 318 680", "email": "grzegorz.zylicz@pieluszynska.pl", "lat": 52.58308, "lng": 16.34579 },
+    { "name": "Stadnina Koni w Dobrzyniewie", "address": "Dobrzyniewo 23, 89-311 Dobrzyniewo", "phone": "602 267 766", "email": "konie@skdobrzyniewo.pl", "lat": 53.17338, "lng": 17.2216 },
+    { "name": "Ośrodek Hipoterapii Prometeusz", "address": "ul. Zygmunta Augusta 12, 34-600 Limanowa", "phone": "607 393 367", "email": "podgroniem@op.pl", "lat": 49.69796, "lng": 20.42733 },
+    { "name": "Horsemarket (Litwa)", "address": "Kunkių g. 38, Kłajpeda, Litwa", "phone": "+370 655 99906", "email": "info@horsemarket.lt", "lat": 55.81579, "lng": 21.1225 }
+  ]
 }
