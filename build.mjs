@@ -1,10 +1,50 @@
 // Generator landing page'y: content/*.json + template.html -> dist/<slug>/index.html
 // Uruchomienie: node build.mjs
-import { readFileSync, writeFileSync, readdirSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync, mkdirSync, cpSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 const root = new URL('.', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
 const template = readFileSync(join(root, 'template.html'), 'utf8');
+
+const storesSectionTpl = (data) => `
+<section id="sklepy">
+  <div class="wrap">
+    <h2>${data.storesHeading}</h2>
+    <p class="prose">${data.storesIntro || ''}</p>
+    <div class="stores-grid">
+      <div id="map"></div>
+      <div class="store-list">${(data.stores || []).map(s =>
+        `<div class="store"><h3>${s.name}</h3><p>${s.address}</p><a href="tel:${s.phone.replace(/\s/g, '')}">${s.phone}</a></div>`
+      ).join('\n')}</div>
+    </div>
+  </div>
+</section>`;
+
+const mapScriptTpl = (data) => `
+<script>window.L_DISABLE_3D = true;</script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const stores = ${JSON.stringify(data.stores)};
+const map = L.map('map', {
+  zoomAnimation: false, fadeAnimation: false, markerZoomAnimation: false,
+  scrollWheelZoom: false,           // kółko myszy przewija stronę, nie zoomuje mapy
+  dragging: !L.Browser.mobile       // na telefonie strona przewija się palcem nad mapą
+}).setView([52.1, 19.3], 6);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+const markers = stores.map(s =>
+  L.marker([s.lat, s.lng]).addTo(map)
+    .bindPopup(\`<b>\${s.name}</b><br>\${s.address}<br><a href="tel:\${s.phone.replace(/\\s/g,'')}">\${s.phone}</a>\`)
+);
+document.querySelectorAll('.store').forEach((el, i) => {
+  el.addEventListener('click', () => {
+    map.setView([stores[i].lat, stores[i].lng], 13);
+    markers[i].openPopup();
+    window.dataLayer && window.dataLayer.push({event: 'store_click', store_name: stores[i].name});
+  });
+});
+</script>`;
 
 const files = readdirSync(join(root, 'content')).filter(f => f.endsWith('.json'));
 for (const file of files) {
@@ -14,14 +54,34 @@ for (const file of files) {
     `<div class="feature"><h3>${f.title}</h3><p>${f.text}</p></div>`
   ).join('\n');
 
-  const storesHtml = (data.stores || []).map(s =>
-    `<div class="store"><h3>${s.name}</h3><p>${s.address}</p><a href="tel:${s.phone.replace(/\s/g, '')}">${s.phone}</a></div>`
+  const galleryHtml = (data.gallery || []).map(g =>
+    `<img src="${g.src}" alt="${g.alt}" loading="lazy">`
   ).join('\n');
 
-  let html = template
+  const tablesHtml = (data.tables || []).map(t => `
+    <div class="tbl"><h3>${t.heading}</h3><table>${t.rows.map(r =>
+      `<tr>${r.map(c => `<td>${c}</td>`).join('')}</tr>`
+    ).join('')}</table>${t.note ? `<p class="note">${t.note}</p>` : ''}</div>`
+  ).join('\n');
+
+  const hasStores = (data.stores || []).length > 0;
+  const hasTables = (data.tables || []).length > 0;
+
+  let html = template;
+  if (!hasTables) html = html.replace(/<section id="dawkowanie">[\s\S]*?<\/section>/, '');
+  html = html
+    .replaceAll('{{topLogoHtml}}', data.topLogo
+      ? `<img class="brand-logo" src="${data.topLogo}" alt="${data.topLogoAlt || ''}">`
+      : `<div class="logo">Fenix <b>Horse</b></div>`)
+    .replaceAll('{{heroImageHtml}}', data.heroImage
+      ? `<div class="hero-img"><img src="${data.heroImage}" alt="${data.heroImageAlt || data.heroTitle}" fetchpriority="high"></div>`
+      : '')
+    .replaceAll('{{galleryHtml}}', galleryHtml)
     .replaceAll('{{featuresHtml}}', featuresHtml)
-    .replaceAll('{{storesHtml}}', storesHtml)
-    .replaceAll('{{storesJson}}', JSON.stringify(data.stores || []));
+    .replaceAll('{{tablesHtml}}', tablesHtml)
+    .replaceAll('{{ctaHref}}', data.ctaHref || (hasStores ? '#sklepy' : 'https://fenix.net.pl'))
+    .replaceAll('{{storesSection}}', hasStores ? storesSectionTpl(data) : '')
+    .replaceAll('{{mapScript}}', hasStores ? mapScriptTpl(data) : '');
 
   for (const [key, value] of Object.entries(data)) {
     if (typeof value === 'string') html = html.replaceAll(`{{${key}}}`, value);
@@ -35,6 +95,13 @@ for (const file of files) {
   writeFileSync(join(outDir, 'index.html'), html);
   console.log(`✓ dist/${data.slug}/index.html`);
 }
+
+// Grafiki wspólne
+if (existsSync(join(root, 'assets'))) {
+  cpSync(join(root, 'assets'), join(root, 'dist', 'assets'), { recursive: true });
+  console.log('✓ dist/assets/');
+}
+
 // Root bez sluga -> przekierowanie na stronę główną Fenix Horse
 mkdirSync(join(root, 'dist'), { recursive: true });
 writeFileSync(join(root, 'dist', 'index.html'),

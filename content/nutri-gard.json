@@ -1,0 +1,64 @@
+{
+  "slug": "nutri-gard",
+  "title": "Foran Nutri-Gard — wsparcie układu trawiennego konia | Fenix Horse",
+  "metaDescription": "Foran Nutri-Gard — zaawansowany suplement wspierający zdrowie żołądka i jelit konia. Postbiotyki, prebiotyki, witaminy B. Oficjalny dystrybutor: Fenix Horse.",
+  "topLogo": "/assets/foran-logo.png",
+  "topLogoAlt": "Foran Equine",
+  "badge": "Oficjalny dystrybutor Foran Equine w Polsce",
+  "heroTitle": "Nutri-Gard",
+  "heroTagline": "Zaawansowany naukowo suplement wspierający zdrowie żołądka i jelit oraz prawidłowe trawienie konia. Postbiotyki, prebiotyki i witaminy z grupy B — w smacznej, jabłkowej formule.",
+  "heroImage": "/assets/nutri-gard-packshot.jpg",
+  "heroImageAlt": "Foran Nutri-Gard — opakowanie",
+  "ctaHref": "https://fenix.net.pl/foran/foran-nutri-gard-suplement-w-proszku-wspomagajacy-funkcjonowanie-ukladu-trawienn.html",
+  "ctaLabel": "Kup w Fenix Horse",
+  "productHeading": "Kompleksowa ochrona układu trawiennego",
+  "productDescription": "<p>Układ pokarmowy konia jest wyjątkowo wrażliwy — stajenne utrzymanie, pasze treściwe i ograniczony dostęp do pastwiska sprzyjają zaburzeniom trawienia, spadkom apetytu i kondycji. Nutri-Gard powstał, by wspierać zdrowie żołądka i jelita grubego każdego dnia.</p><p>Formuła łączy postbiotyk nowej generacji z prebiotykami, pektyną, błonnikiem owsianym oraz aminokwasami i witaminami z grupy B. Produkt w proszku o smaku jabłkowym — podawany na sucho lub z wodą, chętnie pobierany nawet przez wybredne konie.</p><p>Opakowania: <strong>1,2 kg</strong> (ok. 30 dni suplementacji konia) oraz <strong>3 kg</strong>. Produkt bezpieczny dla koni startujących w zawodach.</p>",
+  "features": [
+    { "title": "Postbiotyk", "text": "Wspiera optymalne zdrowie jelit i odporność organizmu." },
+    { "title": "Prebiotyki", "text": "Wspierają zdrowy mikrobiom jelita grubego i wykorzystanie paszy." },
+    { "title": "Pektyna", "text": "Pomaga buforować kwas żołądkowy — wsparcie dla zdrowia żołądka." },
+    { "title": "Witaminy z grupy B", "text": "Pobudzają apetyt i wspierają wykorzystanie białka oraz energii." },
+    { "title": "Aminokwasy", "text": "L-treonina i DL-metionina wspierają zdrową błonę śluzową przewodu pokarmowego." },
+    { "title": "Smak jabłkowy", "text": "Wysoka smakowitość — łatwe podawanie, także u wybrednych koni." }
+  ],
+  "tablesHeading": "Dawkowanie i skład",
+  "tablesIntro": "Nutri-Gard podaje się raz dziennie, na sucho lub wymieszany z wodą, razem z paszą. Miarka 20 g znajduje się w opakowaniu.",
+  "tables": [
+    {
+      "heading": "Dawkowanie dzienne",
+      "rows": [
+        ["Konie i kuce do 300 kg", "20 g (1 miarka)"],
+        ["Konie powyżej 300 kg", "40 g (2 miarki)"]
+      ],
+      "note": "Opakowanie 1,2 kg wystarcza na ok. 30 dni suplementacji konia (40 g dziennie)."
+    },
+    {
+      "heading": "Witaminy (w dawce 40 g)",
+      "rows": [
+        ["Cholina", "400 mg"],
+        ["Kwas foliowy", "105 mg"],
+        ["Witamina B1", "69 mg"],
+        ["Witamina B6", "31 mg"],
+        ["Witamina B2", "25 mg"],
+        ["Witamina B12", "0,2 mg"]
+      ]
+    },
+    {
+      "heading": "Aminokwasy (w dawce 40 g)",
+      "rows": [
+        ["L-treonina", "3 240 mg"],
+        ["DL-metionina", "1 310 mg"]
+      ],
+      "note": "Składniki: błonnik owsiany, produkty drożdżowe, inulina, pektyna. Białko surowe 15,7%, włókno surowe 20,1%."
+    }
+  ],
+  "gallery": [
+    { "src": "/assets/nutri-gard-square.jpg", "alt": "Foran Nutri-Gard — korzyści produktu" },
+    { "src": "/assets/nutri-gard-gallery.jpg", "alt": "Foran Nutri-Gard — zastosowanie" }
+  ],
+  "brandHeading": "Foran Equine × Fenix Horse",
+  "brandDescription": "<p>Foran Equine to irlandzki producent suplementów dla koni z ponad 40-letnim doświadczeniem, zaufany przez czołowych hodowców, trenerów i jeźdźców na całym świecie. Produkty Foran powstają zgodnie z rygorystycznymi normami jakości i bezpieczeństwa antydopingowego.</p><p>Fenix Horse — hurtownia artykułów jeździeckich z tradycjami od 1945 roku — jest oficjalnym dystrybutorem Foran Equine w Polsce. Kupując u nas i u naszych partnerów, masz pewność oryginalnego produktu i fachowego doradztwa.</p>",
+  "storesHeading": "Gdzie kupić Nutri-Gard?",
+  "storesIntro": "Kup w jednym z autoryzowanych sklepów jeździeckich:",
+  "stores": []
+}
