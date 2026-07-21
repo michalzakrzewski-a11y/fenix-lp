@@ -47,6 +47,28 @@ document.querySelectorAll('.store').forEach((el, i) => {
 });
 </script>`;
 
+// data.theme (opcjonalne) -> nadpisanie zmiennych CSS; klucze jak w :root bez "--"
+const themeCssTpl = (theme) => {
+  const vars = Object.entries(theme)
+    .map(([k, v]) => `--${k.replace(/[A-Z]/g, m => '-' + m.toLowerCase())}:${v}`)
+    .join(';');
+  return `:root{${vars}}`;
+};
+
+const contactStripTpl = (c) => `
+<section class="contact-strip" id="kontakt">
+  <div class="wrap">
+    <div>
+      <h2>${c.heading}</h2>
+      <p>${c.text || ''}</p>
+    </div>
+    <div class="contact-actions">
+      <a class="tel" href="tel:${c.phone.replace(/\s/g, '')}" data-gtm="contact-tel">☎ ${c.phone}</a>
+      <a class="mail" href="mailto:${c.email}" data-gtm="contact-mail">${c.email}</a>
+    </div>
+  </div>
+</section>`;
+
 const files = readdirSync(join(root, 'content')).filter(f => f.endsWith('.json'));
 for (const file of files) {
   const data = JSON.parse(readFileSync(join(root, 'content', file), 'utf8'));
@@ -80,6 +102,8 @@ for (const file of files) {
     .replaceAll('{{galleryHtml}}', galleryHtml)
     .replaceAll('{{featuresHtml}}', featuresHtml)
     .replaceAll('{{tablesHtml}}', tablesHtml)
+    .replaceAll('{{themeCss}}', data.theme ? themeCssTpl(data.theme) : '')
+    .replaceAll('{{contactStrip}}', data.contact ? contactStripTpl(data.contact) : '')
     .replaceAll('{{heroNoteHtml}}', data.heroNote ? `<p class="hero-note">${data.heroNote}</p>` : '')
     .replaceAll('{{ctaHref}}', data.ctaHref || (hasStores ? '#sklepy' : 'https://fenix.net.pl'))
     .replaceAll('{{storesSection}}', hasStores ? storesSectionTpl(data) : '')

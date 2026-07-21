@@ -2,6 +2,25 @@
   "slug": "nutri-gard",
   "title": "Foran Nutri-Gard — wsparcie układu trawiennego konia | Fenix Horse",
   "metaDescription": "Foran Nutri-Gard — zaawansowany suplement wspierający zdrowie żołądka i jelit konia. Postbiotyki, prebiotyki, witaminy B. Oficjalny dystrybutor: Fenix Horse.",
+  "theme": {
+    "accent": "#F36F21",
+    "accentInk": "#ffffff",
+    "grad": "linear-gradient(-90deg,#0E0F10 20%,#373B43 100%)",
+    "dark": "#16181B",
+    "bg": "#ffffff",
+    "panel": "#F5F5F5",
+    "line": "#E8EAED",
+    "ink": "#1c1e21",
+    "muted": "#5a6068",
+    "fontHead": "system-ui,-apple-system,'Segoe UI',Arial,sans-serif",
+    "headWeight": "700"
+  },
+  "contact": {
+    "heading": "Masz pytania o Nutri-Gard?",
+    "text": "Doradzimy w doborze suplementu i wskażemy najbliższy punkt sprzedaży.",
+    "phone": "+48 887 500 749",
+    "email": "info@fenix.net.pl"
+  },
   "topLogo": "/assets/foran-logo.png",
   "topLogoAlt": "Foran Equine",
   "badge": "Oficjalny dystrybutor Foran Equine w Polsce",
