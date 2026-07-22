@@ -86,6 +86,24 @@ const researchTpl = (r) => `
   </div>
 </section>`;
 
+// Typografia (zasady Michała): 1) myślniki -> pojedynczy dywiz; 2) linia nie kończy się
+// krótkim wyrazem, liczbą ani znakiem (twarde spacje); 3) "45-letnim" nie łamie się po dywizie.
+// Działa na tekście widocznym; omija bloki <script>/<style> i wnętrza tagów.
+const fixText = (txt) => {
+  const NBSP = '\u00A0', NBHY = '\u2011';
+  let s = txt.replace(/[\u2014\u2013]/g, '-');
+  s = s.replace(/(\d)-(?=\p{L})/gu, '$1' + NBHY);   // "45-letnim" bez lamania po dywizie
+  const shortWord = new RegExp('(^|[\\s(\u201E"\u00A0])([aiouwzAIOUWZ]|[Nn]a|[Dd]o|[Oo]d|[Pp]o|[Zz]a|[Zz]e|[Ww]e)\u0020(?=\\S)', 'g');
+  s = s.replace(shortWord, '$1$2' + NBSP).replace(shortWord, '$1$2' + NBSP); // 2x dla ciagow typu "i w"
+  s = s.replace(/(\d)\u0020(?=[\p{L}\d+(])/gu, '$1' + NBSP);  // liczba nie zostaje na koncu linii
+  s = s.replace(/\u0020([=\u00D7+\u00B1-])\u0020/g, NBSP + '$1' + NBSP); // znaki spiete z sasiadami
+  return s;
+};
+const typo = (html) => html
+  .split(/(<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>)/)
+  .map((part, i) => i % 2 === 1 ? part : part.replace(/>([^<]+)</g, (m, t) => '>' + fixText(t) + '<'))
+  .join('');
+
 const files = readdirSync(join(root, 'content')).filter(f => f.endsWith('.json'));
 for (const file of files) {
   const data = JSON.parse(readFileSync(join(root, 'content', file), 'utf8'));
@@ -139,7 +157,7 @@ for (const file of files) {
 
   const outDir = join(root, 'dist', data.slug);
   mkdirSync(outDir, { recursive: true });
-  writeFileSync(join(outDir, 'index.html'), html);
+  writeFileSync(join(outDir, 'index.html'), typo(html));
   console.log(`✓ dist/${data.slug}/index.html`);
 }
 
