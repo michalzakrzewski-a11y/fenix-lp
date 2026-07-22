@@ -1,0 +1,111 @@
+{
+  "exportFormatVersion": 2,
+  "containerVersion": {
+    "path": "accounts/0/containers/0/versions/0",
+    "accountId": "0",
+    "containerId": "0",
+    "containerVersionId": "0",
+    "container": {
+      "path": "accounts/0/containers/0",
+      "accountId": "0",
+      "containerId": "0",
+      "name": "Fenix LP - lp.fenix.net.pl",
+      "usageContext": ["WEB"]
+    },
+    "variable": [
+      { "accountId": "0", "containerId": "0", "variableId": "100", "name": "GA4 - Measurement ID", "type": "c",
+        "parameter": [{ "type": "TEMPLATE", "key": "value", "value": "G-WPISZ_TUTAJ" }] },
+      { "accountId": "0", "containerId": "0", "variableId": "101", "name": "Clarity - Project ID", "type": "c",
+        "parameter": [{ "type": "TEMPLATE", "key": "value", "value": "WPISZ_ID_CLARITY" }] },
+      { "accountId": "0", "containerId": "0", "variableId": "102", "name": "DL - store_name", "type": "v",
+        "parameter": [{ "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "TEMPLATE", "key": "name", "value": "store_name" }] },
+      { "accountId": "0", "containerId": "0", "variableId": "103", "name": "DL - contact_type", "type": "v",
+        "parameter": [{ "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "TEMPLATE", "key": "name", "value": "contact_type" }] },
+      { "accountId": "0", "containerId": "0", "variableId": "104", "name": "DL - tel_number", "type": "v",
+        "parameter": [{ "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "TEMPLATE", "key": "name", "value": "tel_number" }] }
+    ],
+    "trigger": [
+      { "accountId": "0", "containerId": "0", "triggerId": "10", "name": "CE - store_click", "type": "CUSTOM_EVENT",
+        "customEventFilter": [{ "type": "EQUALS", "parameter": [{ "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" }, { "type": "TEMPLATE", "key": "arg1", "value": "store_click" }] }] },
+      { "accountId": "0", "containerId": "0", "triggerId": "11", "name": "CE - store_contact_click", "type": "CUSTOM_EVENT",
+        "customEventFilter": [{ "type": "EQUALS", "parameter": [{ "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" }, { "type": "TEMPLATE", "key": "arg1", "value": "store_contact_click" }] }] },
+      { "accountId": "0", "containerId": "0", "triggerId": "12", "name": "CE - tel_click", "type": "CUSTOM_EVENT",
+        "customEventFilter": [{ "type": "EQUALS", "parameter": [{ "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" }, { "type": "TEMPLATE", "key": "arg1", "value": "tel_click" }] }] },
+      { "accountId": "0", "containerId": "0", "triggerId": "13", "name": "CE - contact_form_open", "type": "CUSTOM_EVENT",
+        "customEventFilter": [{ "type": "EQUALS", "parameter": [{ "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" }, { "type": "TEMPLATE", "key": "arg1", "value": "contact_form_open" }] }] },
+      { "accountId": "0", "containerId": "0", "triggerId": "14", "name": "CE - contact_form_submit", "type": "CUSTOM_EVENT",
+        "customEventFilter": [{ "type": "EQUALS", "parameter": [{ "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" }, { "type": "TEMPLATE", "key": "arg1", "value": "contact_form_submit" }] }] },
+      { "accountId": "0", "containerId": "0", "triggerId": "15", "name": "CE - cta_hero_click", "type": "CUSTOM_EVENT",
+        "customEventFilter": [{ "type": "EQUALS", "parameter": [{ "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" }, { "type": "TEMPLATE", "key": "arg1", "value": "cta_hero_click" }] }] },
+      { "accountId": "0", "containerId": "0", "triggerId": "16", "name": "CE - outbound_fenix_click", "type": "CUSTOM_EVENT",
+        "customEventFilter": [{ "type": "EQUALS", "parameter": [{ "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" }, { "type": "TEMPLATE", "key": "arg1", "value": "outbound_fenix_click" }] }] }
+    ],
+    "tag": [
+      { "accountId": "0", "containerId": "0", "tagId": "1", "name": "Google Tag - GA4", "type": "googtag",
+        "parameter": [{ "type": "TEMPLATE", "key": "tagId", "value": "{{GA4 - Measurement ID}}" }],
+        "firingTriggerId": ["2147479573"] },
+      { "accountId": "0", "containerId": "0", "tagId": "2", "name": "GA4 - store_click", "type": "gaawe",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "measurementIdOverride", "value": "{{GA4 - Measurement ID}}" },
+          { "type": "TEMPLATE", "key": "eventName", "value": "store_click" },
+          { "type": "LIST", "key": "eventSettingsTable", "list": [
+            { "type": "MAP", "map": [{ "type": "TEMPLATE", "key": "parameter", "value": "store_name" }, { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DL - store_name}}" }] }
+          ] }
+        ],
+        "firingTriggerId": ["10"] },
+      { "accountId": "0", "containerId": "0", "tagId": "3", "name": "GA4 - store_contact_click", "type": "gaawe",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "measurementIdOverride", "value": "{{GA4 - Measurement ID}}" },
+          { "type": "TEMPLATE", "key": "eventName", "value": "store_contact_click" },
+          { "type": "LIST", "key": "eventSettingsTable", "list": [
+            { "type": "MAP", "map": [{ "type": "TEMPLATE", "key": "parameter", "value": "store_name" }, { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DL - store_name}}" }] },
+            { "type": "MAP", "map": [{ "type": "TEMPLATE", "key": "parameter", "value": "contact_type" }, { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DL - contact_type}}" }] }
+          ] }
+        ],
+        "firingTriggerId": ["11"] },
+      { "accountId": "0", "containerId": "0", "tagId": "4", "name": "GA4 - tel_click", "type": "gaawe",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "measurementIdOverride", "value": "{{GA4 - Measurement ID}}" },
+          { "type": "TEMPLATE", "key": "eventName", "value": "tel_click" },
+          { "type": "LIST", "key": "eventSettingsTable", "list": [
+            { "type": "MAP", "map": [{ "type": "TEMPLATE", "key": "parameter", "value": "tel_number" }, { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DL - tel_number}}" }] }
+          ] }
+        ],
+        "firingTriggerId": ["12"] },
+      { "accountId": "0", "containerId": "0", "tagId": "5", "name": "GA4 - contact_form_open", "type": "gaawe",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "measurementIdOverride", "value": "{{GA4 - Measurement ID}}" },
+          { "type": "TEMPLATE", "key": "eventName", "value": "contact_form_open" }
+        ],
+        "firingTriggerId": ["13"] },
+      { "accountId": "0", "containerId": "0", "tagId": "6", "name": "GA4 - contact_form_submit", "type": "gaawe",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "measurementIdOverride", "value": "{{GA4 - Measurement ID}}" },
+          { "type": "TEMPLATE", "key": "eventName", "value": "contact_form_submit" }
+        ],
+        "firingTriggerId": ["14"] },
+      { "accountId": "0", "containerId": "0", "tagId": "7", "name": "GA4 - cta_hero_click", "type": "gaawe",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "measurementIdOverride", "value": "{{GA4 - Measurement ID}}" },
+          { "type": "TEMPLATE", "key": "eventName", "value": "cta_hero_click" }
+        ],
+        "firingTriggerId": ["15"] },
+      { "accountId": "0", "containerId": "0", "tagId": "8", "name": "GA4 - outbound_fenix_click", "type": "gaawe",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "measurementIdOverride", "value": "{{GA4 - Measurement ID}}" },
+          { "type": "TEMPLATE", "key": "eventName", "value": "outbound_fenix_click" }
+        ],
+        "firingTriggerId": ["16"] },
+      { "accountId": "0", "containerId": "0", "tagId": "9", "name": "Microsoft Clarity", "type": "html",
+        "parameter": [{ "type": "TEMPLATE", "key": "html", "value": "<script>\n(function(c,l,a,r,i,t,y){\n  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};\n  t=l.createElement(r);t.async=1;t.src=\"https://www.clarity.ms/tag/\"+i;\n  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);\n})(window, document, \"clarity\", \"script\", \"{{Clarity - Project ID}}\");\n</script>" }],
+        "consentSettings": { "consentStatus": "NEEDED", "consentType": { "type": "LIST", "list": [{ "type": "TEMPLATE", "value": "analytics_storage" }] } },
+        "firingTriggerId": ["2147479553"] }
+    ],
+    "builtInVariable": [
+      { "accountId": "0", "containerId": "0", "type": "EVENT", "name": "Event" },
+      { "accountId": "0", "containerId": "0", "type": "PAGE_URL", "name": "Page URL" },
+      { "accountId": "0", "containerId": "0", "type": "PAGE_PATH", "name": "Page Path" },
+      { "accountId": "0", "containerId": "0", "type": "REFERRER", "name": "Referrer" }
+    ]
+  }
+}

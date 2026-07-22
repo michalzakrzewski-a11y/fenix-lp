@@ -6,7 +6,22 @@
 <title>{{title}}</title>
 <meta name="description" content="{{metaDescription}}">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-<!-- GTM: wkleić snippet nowego kontenera tutaj (head) -->
+<script>
+/* Consent Mode v2 - domyślnie brak zgody; baner na dole strony aktualizuje. Musi być PRZED GTM. */
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+  analytics_storage: 'denied', wait_for_update: 500
+});
+if (localStorage.getItem('fenix-consent') === 'granted') {
+  gtag('consent', 'update', {
+    ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted',
+    analytics_storage: 'granted'
+  });
+}
+</script>
+<!-- GTM: wkleić snippet nowego kontenera tutaj (head, PONIŻEJ consent) -->
 <style>
 :root{
   --accent:#c8a45c;            /* kolor akcentu: przyciski, podkreślenia, linki */
@@ -112,6 +127,14 @@ h2::after{content:"";display:block;width:56px;height:3px;background:var(--accent
 .contact-actions a{font-family:system-ui,sans-serif;font-weight:600;text-decoration:none;padding:14px 26px;border-radius:6px;white-space:nowrap}
 .contact-actions a.tel{background:#fff;color:var(--accent)}
 .contact-actions a.mail{border:2px solid #fff;color:#fff}
+.consent{position:fixed;left:0;right:0;bottom:0;z-index:3000;background:#fff;border-top:1px solid var(--line);box-shadow:0 -6px 24px rgba(0,0,0,.12);font-family:system-ui,sans-serif}
+.consent .wrap{display:flex;align-items:center;gap:20px;padding:16px 20px;flex-wrap:wrap}
+.consent p{font-size:.85rem;color:var(--muted);flex:1;min-width:260px;margin:0}
+.consent p a{color:var(--dark)}
+.consent-actions{display:flex;gap:10px}
+.consent-actions button{font:inherit;font-weight:600;padding:11px 22px;border-radius:6px;cursor:pointer}
+.consent-actions .acc{background:var(--accent);color:var(--accent-ink);border:none}
+.consent-actions .rej{background:#fff;color:var(--dark);border:1px solid var(--line)}
 .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;padding:20px;z-index:2000}
 .modal-bg[hidden]{display:none}
 .modal{background:#fff;border-radius:14px;padding:30px 28px;max-width:480px;width:100%;max-height:92vh;overflow-y:auto;position:relative;font-family:system-ui,sans-serif}
@@ -212,6 +235,35 @@ footer .legal{width:100%;margin-top:22px;padding-top:16px;border-top:1px solid r
     <div class="legal">KRS 0000291008 · Sąd Rejonowy Poznań-Nowe Miasto i Wilda</div>
   </div>
 </footer>
+
+<div class="consent" id="consent" hidden>
+  <div class="wrap">
+    <p>Używamy plików cookie, aby mierzyć ruch na stronie i skuteczność naszych reklam (Google, Meta, Microsoft Clarity). Klikając „Akceptuję", zgadzasz się na pomiar; „Tylko niezbędne" ogranicza stronę do funkcji podstawowych.</p>
+    <div class="consent-actions">
+      <button class="rej" id="consent-rej">Tylko niezbędne</button>
+      <button class="acc" id="consent-acc">Akceptuję</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var box = document.getElementById('consent');
+  if (!localStorage.getItem('fenix-consent')) box.hidden = false;
+  document.getElementById('consent-acc').addEventListener('click', function(){
+    localStorage.setItem('fenix-consent', 'granted');
+    gtag('consent', 'update', {
+      ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted',
+      analytics_storage: 'granted'
+    });
+    window.dataLayer.push({event: 'consent_granted'});
+    box.hidden = true;
+  });
+  document.getElementById('consent-rej').addEventListener('click', function(){
+    localStorage.setItem('fenix-consent', 'denied');
+    box.hidden = true;
+  });
+})();
+</script>
 
 <div class="modal-bg" id="modal-formularz" hidden>
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="form-title">
