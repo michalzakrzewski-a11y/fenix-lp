@@ -79,18 +79,16 @@
   "storesHeading": "Gdzie kupić Nutri-Gard?",
   "storesIntro": "Kup u jednego z naszych partnerów — kliknij punkt na liście, aby zobaczyć go na mapie:",
   "stores": [
-    { "name": "Mustardos", "address": "Plac Mirowski 1/31, 00-138 Warszawa", "phone": "608 728 900", "email": "mustardospl@gmail.com", "lat": 52.23884, "lng": 20.99737 },
-    { "name": "Sklep Karina (P.P.H.U. Bago)", "address": "ul. Braci Wagów 1, 02-791 Warszawa", "phone": "22 649 02 23", "email": "kontakt@sklepkarina.pl", "lat": 52.13888, "lng": 21.05186 },
-    { "name": "Sklep Jeździecki Cavalo", "address": "Człekówka 96, 05-340 Kołbiel", "phone": "660 379 340", "email": "sklep@cavalo.pl", "lat": 52.0471, "lng": 21.43479 },
-    { "name": "Sklep Jeździecki PK (Rymarz)", "address": "ul. Starołęcka 18A, 61-361 Poznań", "phone": "574 793 353", "email": "faktury@sklepjezdzieckipk.pl", "lat": 52.37371, "lng": 16.93682 },
-    { "name": "Salon Jeździecki Pegaz", "address": "ul. Zamkowa 2, 62-310 Pyzdry", "phone": "696 087 750", "email": "salonpegaz@wp.pl", "lat": 52.167, "lng": 17.69029 },
-    { "name": "GNL Sp. z o.o.", "address": "ul. Brukowa 10/3, 91-341 Łódź", "phone": "512 447 328", "email": "gnl@gnl.pl", "lat": 51.79834, "lng": 19.40827 },
-    { "name": "Dobry-Koń (Kron Electric)", "address": "Jaksin 31, 57-160 Borów", "phone": "793 713 773", "email": "sklep@dobry-kon.pl", "lat": 50.84702, "lng": 17.07219 },
-    { "name": "Adrian Obiegły Equestrian", "address": "ul. Wrocławska 30, 56-400 Smardzów", "phone": "608 308 174", "email": "info@obiegly.pl", "lat": 51.20126, "lng": 17.32 },
-    { "name": "Stajnia Jaszkowo", "address": "Jaszkowo 16, 63-112 Brodnica", "phone": "789 375 263", "email": "stajniajaszkowo@gmail.com", "lat": 52.14188, "lng": 16.97821 },
-    { "name": "Pieluszyńska Sp. z o.o.", "address": "Zajączkowo 48A, 62-045 Pniewy", "phone": "605 318 680", "email": "grzegorz.zylicz@pieluszynska.pl", "lat": 52.58308, "lng": 16.34579 },
-    { "name": "Stadnina Koni w Dobrzyniewie", "address": "Dobrzyniewo 23, 89-311 Dobrzyniewo", "phone": "602 267 766", "email": "konie@skdobrzyniewo.pl", "lat": 53.17338, "lng": 17.2216 },
-    { "name": "Ośrodek Hipoterapii Prometeusz", "address": "ul. Zygmunta Augusta 12, 34-600 Limanowa", "phone": "607 393 367", "email": "podgroniem@op.pl", "lat": 49.69796, "lng": 20.42733 },
-    { "name": "Horsemarket (Litwa)", "address": "Kunkių g. 38, Kłajpeda, Litwa", "phone": "+370 655 99906", "email": "info@horsemarket.lt", "lat": 55.81579, "lng": 21.1225 }
+    { "name": "Horse Feed", "address": "ul. Żwirowa 72 BOX 25, 05-090 Puchały", "phone": "608 728 900", "email": "kontakt@horse-feed.pl", "www": "https://www.horse-feed.pl", "logo": "/assets/logos/horse-feed.jpg", "lat": 52.14769, "lng": 20.8873 },
+    { "name": "Klaipeda Shop „All for horse & rider”", "address": "Kunkių g. 35, Kłajpeda, Litwa", "phone": "+370 655 99906", "email": "info@horsemarket.lt", "www": "https://horsemarket.lt", "logo": "/assets/logos/horsemarket.svg", "lat": 55.81221, "lng": 21.1114 },
+    { "name": "Salon Jeździecki Karina", "address": "ul. Braci Wagów 1, 02-791 Warszawa", "phone": "22 649 02 23", "email": "kontakt@sklepkarina.pl", "www": "https://sklepkarina.pl", "logo": "/assets/logos/karina.png", "lat": 52.13888, "lng": 21.05186 },
+    { "name": "Salon Jeździecki Pegaz", "address": "ul. Lutycka 34, 60-413 Poznań", "phone": "696 087 750", "email": "salonpegaz@wp.pl", "www": "https://www.pegazshop.pl", "logo": "/assets/logos/pegaz.jpg", "lat": 52.43237, "lng": 16.85386 },
+    { "name": "Sklep Jeździecki Cavalo", "address": "Człekówka 96, 05-340 Kołbiel", "phone": "660 379 340", "email": "sklep@cavalo.pl", "www": "https://cavalo.pl", "logo": "/assets/logos/cavalo.svg", "lat": 52.0471, "lng": 21.43479 },
+    { "name": "Sklep Jeździecki Dobry Koń", "address": "ul. Nowohucka 1, 54-617 Wrocław", "phone": "793 713 773", "email": "sklep@dobry-kon.pl", "www": "https://dobry-kon.pl", "logo": "/assets/logos/dobry-kon.svg", "lat": 51.09557, "lng": 16.94318 },
+    { "name": "Sklep Jeździecki GNL", "address": "ul. Brukowa 10/3, 91-341 Łódź", "phone": "512 447 328", "email": "gnl@gnl.pl", "www": "https://www.gnl.pl", "logo": "/assets/logos/gnl.png", "lat": 51.79834, "lng": 19.40827 },
+    { "name": "Sklep Jeździecki Obiegły", "address": "ul. Wrocławska 30, 56-400 Smardzów", "phone": "608 308 174", "email": "info@obiegly.pl", "www": "https://sklep.obiegly.pl", "logo": "/assets/logos/obiegly.jpg", "lat": 51.20126, "lng": 17.32 },
+    { "name": "Sklep Jeździecki PK", "address": "ul. Starołęcka 18A, 61-361 Poznań", "phone": "574 793 353", "email": "sklep@sklepjezdzieckipk.pl", "www": "https://sklepjezdzieckipk.pl", "logo": "/assets/logos/pk.png", "lat": 52.37371, "lng": 16.93682 },
+    { "name": "Sklep Jeździecki Stajnia Jaszkowo", "address": "Jaszkowo 16, 63-112 Brodnica", "phone": "789 375 263", "email": "stajniajaszkowo@gmail.com", "lat": 52.14188, "lng": 16.97821 },
+    { "name": "Sklep Stajnia Miszewo", "address": "ul. Gdyńska 179, 80-297 Miszewo", "phone": "502 505 502", "email": "biuro.stajniamiszewo@gmail.com", "www": "https://stajnia-miszewo.pl", "logo": "/assets/logos/miszewo.png", "lat": 54.3953, "lng": 18.35558 }
   ]
 }
