@@ -38,6 +38,28 @@
     { "title": "Aminokwasy", "text": "L-treonina i DL-metionina wspierają zdrowie błony śluzowej przewodu pokarmowego." },
     { "title": "Smak jabłkowy", "text": "Wysoka smakowitość — łatwe podawanie, także u wybrednych koni." }
   ],
+  "research": {
+    "heading": "Skuteczność potwierdzona w badaniu terenowym",
+    "intro": "Pilotażowe badanie terenowe na koniach wyścigowych pełnej krwi angielskiej (Chantilly, Francja) sprawdziło, czy NUTRI-GARD ogranicza kwasicę jelita grubego — powiązaną z owrzodzeniami, bólem i słabym wykorzystaniem paszy.",
+    "stats": [
+      { "value": "56 dni", "label": "czas trwania badania, przy niezmienionej diecie i treningu" },
+      { "value": "34", "label": "konie wyścigowe z dwóch ośrodków treningowych (17 suplementowanych + 17 grupa kontrolna)" },
+      { "value": "40 g", "label": "dzienna dawka NUTRI-GARD podawana z poranną paszą" },
+      { "value": "P = 0,003", "label": "istotny statystycznie wzrost pH kału w grupie NUTRI-GARD po 56 dniach" }
+    ],
+    "compare": [
+      { "title": "Grupa NUTRI-GARD", "good": true, "points": [
+        "istotny wzrost pH kału do 56. dnia badania (P = 0,003)",
+        "istotnie rzadsze występowanie kwasicy jelita grubego (OR = 0,12; P = 0,03)"
+      ]},
+      { "title": "Grupa kontrolna", "points": [
+        "brak istotnych zmian pH kału (P = 0,51)",
+        "brak spadku ryzyka kwasicy (P = 0,71)"
+      ]}
+    ],
+    "conclusion": "<strong>Wniosek z badania:</strong> konie suplementowane NUTRI-GARD miały istotnie wyższe pH kału po 56 dniach. Suplementy takie jak NUTRI-GARD mogą pomóc w poprawie pH jelita grubego i — wraz z odpowiednią dietą — ograniczać częstotliwość lub nasilenie kwasicy. Zbyt niskie pH (poniżej 6,2) osłabia bakterie trawiące włókno, czyli fundament końskiego trawienia.",
+    "source": "O'Connor S. (Connolly's Red Mills), Mulligan F.J. (School of Veterinary Medicine, University College Dublin). Badanie terenowe finansowane przez Foran Equine; analiza statystyczna: R 4.3.1, pomiary pH kału w dniach 0, 28 i 56."
+  },
   "tablesHeading": "Dawkowanie i skład",
   "tablesIntro": "Nutri-Gard podaje się raz dziennie, na sucho lub wymieszany z wodą, razem z paszą. Miarka 20 g znajduje się w opakowaniu.",
   "tables": [

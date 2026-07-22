@@ -69,6 +69,20 @@ const contactStripTpl = (c) => `
   </div>
 </section>`;
 
+const researchTpl = (r) => `
+<section class="research" id="badanie">
+  <div class="wrap">
+    <h2>${r.heading}</h2>
+    <p class="prose">${r.intro}</p>
+    <div class="research-stats">${r.stats.map(s =>
+      `<div class="stat"><div class="val">${s.value}</div><p>${s.label}</p></div>`).join('\n')}</div>
+    <div class="research-compare">${r.compare.map(c =>
+      `<div class="cmp${c.good ? ' good' : ''}"><h3>${c.title}</h3><ul>${c.points.map(p => `<li>${p}</li>`).join('')}</ul></div>`).join('\n')}</div>
+    <div class="research-conclusion">${r.conclusion}</div>
+    <p class="research-source">${r.source}</p>
+  </div>
+</section>`;
+
 const files = readdirSync(join(root, 'content')).filter(f => f.endsWith('.json'));
 for (const file of files) {
   const data = JSON.parse(readFileSync(join(root, 'content', file), 'utf8'));
@@ -95,6 +109,7 @@ for (const file of files) {
   if (!hasTables) html = html.replace(/<section id="dawkowanie">[\s\S]*?<\/section>/, '');
   html = html
     .replaceAll('{{formKey}}', data.formKey || '')
+    .replaceAll('{{researchSection}}', data.research ? researchTpl(data.research) : '')
     .replaceAll('{{heroImageHtml}}', data.heroImage
       ? `<div class="hero-img"><img src="${data.heroImage}" alt="${data.heroImageAlt || data.heroTitle}" fetchpriority="high"></div>`
       : '')
