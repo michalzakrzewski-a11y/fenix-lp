@@ -64,7 +64,7 @@ const contactStripTpl = (c) => `
     </div>
     <div class="contact-actions">
       <a class="tel" href="tel:${c.phone.replace(/\s/g, '')}" data-gtm="contact-tel">☎ ${c.phone}</a>
-      <a class="mail" href="mailto:${c.email}" data-gtm="contact-mail">${c.email}</a>
+      <a class="mail" href="#" data-open-form>✉ Napisz do nas</a>
     </div>
   </div>
 </section>`;
@@ -94,9 +94,7 @@ for (const file of files) {
   let html = template;
   if (!hasTables) html = html.replace(/<section id="dawkowanie">[\s\S]*?<\/section>/, '');
   html = html
-    .replaceAll('{{topLogoHtml}}', data.topLogo
-      ? `<img class="brand-logo" src="${data.topLogo}" alt="${data.topLogoAlt || ''}">`
-      : `<div class="logo">Fenix <b>Horse</b></div>`)
+    .replaceAll('{{formKey}}', data.formKey || '')
     .replaceAll('{{heroImageHtml}}', data.heroImage
       ? `<div class="hero-img"><img src="${data.heroImage}" alt="${data.heroImageAlt || data.heroTitle}" fetchpriority="high"></div>`
       : '')

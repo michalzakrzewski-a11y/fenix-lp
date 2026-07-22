@@ -21,15 +21,13 @@
     "phone": "+48 887 500 749",
     "email": "info@fenix.net.pl"
   },
-  "topLogo": "/assets/foran-logo.png",
-  "topLogoAlt": "Foran Equine",
   "badge": "Oficjalny dystrybutor Foran Equine w Polsce",
   "heroTitle": "Nutri-Gard",
   "heroTagline": "Zaawansowany naukowo suplement wspierający zdrowie żołądka i jelit oraz prawidłowe trawienie konia. Postbiotyki, prebiotyki i witaminy z grupy B — w smacznej, jabłkowej formule.",
   "topBanner": "/assets/nutri-gard-baner.jpg",
   "topBannerAlt": "Foran Nutri-Gard — aż 12 kluczowych składników",
   "ctaLabel": "Znajdź sklep w pobliżu",
-  "heroNote": "Masz pytania? Zadzwoń: <a href=\"tel:+48887500749\">+48 887 500 749</a> lub napisz: <a href=\"mailto:info@fenix.net.pl\">info@fenix.net.pl</a>",
+  "heroNote": "Masz pytania? Zadzwoń: <a href=\"tel:+48887500749\">+48 887 500 749</a> lub <a href=\"#\" data-open-form>napisz do nas</a>",
   "productHeading": "Kompleksowa ochrona układu trawiennego",
   "productDescription": "<p>Układ pokarmowy konia jest wyjątkowo wrażliwy — stajenne utrzymanie, pasze treściwe i ograniczony dostęp do pastwiska sprzyjają zaburzeniom trawienia, spadkom apetytu i kondycji. Nutri-Gard powstał, by wspierać zdrowie żołądka i jelita grubego każdego dnia.</p><p>Formuła łączy postbiotyk nowej generacji z prebiotykami, pektyną, błonnikiem owsianym oraz aminokwasami i witaminami z grupy B. Produkt w proszku o smaku jabłkowym — podawany na sucho lub z wodą, chętnie pobierany nawet przez wybredne konie.</p><p>Opakowania: <strong>1,2 kg</strong> (ok. 30 dni suplementacji konia) oraz <strong>3 kg</strong>. Produkt bezpieczny dla koni startujących w zawodach.</p>",
   "features": [

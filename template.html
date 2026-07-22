@@ -26,12 +26,12 @@ html{scroll-behavior:smooth}
 body{font-family:var(--font-head);color:var(--ink);background:var(--bg);line-height:1.6}
 .wrap{max-width:1060px;margin:0 auto;padding:0 20px}
 h1,h2,h3{font-family:var(--font-head);font-weight:var(--head-weight)}
-header.top{background:#fff;border-bottom:1px solid var(--line);padding:12px 0}
+header.top{background:#101214;padding:10px 0}
 header.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px}
-.brand-logo{height:44px;width:auto;display:block}
-.logo{font-size:1.15rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dark)}
-.logo b{color:var(--accent)}
-.top a{color:var(--dark);opacity:.85;text-decoration:none;font-size:.9rem;font-family:system-ui,sans-serif;white-space:nowrap}
+.brand-box{display:flex;align-items:center;gap:16px;min-width:0}
+.brand-box img{height:46px;width:auto;flex-shrink:0}
+.slogan{font-family:system-ui,sans-serif;color:#A38963;font-size:.95rem;letter-spacing:.08em}
+.top a{color:#fff;opacity:.85;text-decoration:none;font-size:.9rem;font-family:system-ui,sans-serif;white-space:nowrap}
 .top-banner img{display:block;width:100%;height:auto}
 .hero{background:var(--grad);color:#fff;padding:52px 0 60px}
 .hero .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
@@ -83,6 +83,20 @@ h2::after{content:"";display:block;width:56px;height:3px;background:var(--accent
 .contact-actions a{font-family:system-ui,sans-serif;font-weight:600;text-decoration:none;padding:14px 26px;border-radius:6px;white-space:nowrap}
 .contact-actions a.tel{background:#fff;color:var(--accent)}
 .contact-actions a.mail{border:2px solid #fff;color:#fff}
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;padding:20px;z-index:2000}
+.modal-bg[hidden]{display:none}
+.modal{background:#fff;border-radius:14px;padding:30px 28px;max-width:480px;width:100%;max-height:92vh;overflow-y:auto;position:relative;font-family:system-ui,sans-serif}
+.modal h3{color:var(--dark);font-size:1.3rem;margin-bottom:6px}
+.modal>p, .modal form>p.sub{color:var(--muted);font-size:.9rem;margin-bottom:16px}
+.modal-close{position:absolute;top:12px;right:14px;border:none;background:none;font-size:1.6rem;line-height:1;cursor:pointer;color:var(--muted)}
+.modal input,.modal textarea{width:100%;border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin-bottom:12px;font:inherit;font-size:.95rem}
+.modal input:focus,.modal textarea:focus{outline:2px solid var(--accent);border-color:transparent}
+.rodo{display:flex;gap:10px;align-items:flex-start;font-size:.78rem;color:var(--muted);margin-bottom:16px}
+.rodo input{width:auto;margin:3px 0 0}
+.modal .cta{width:100%;border:none;cursor:pointer;text-align:center}
+.form-status{margin-top:12px;font-size:.92rem;font-weight:600}
+.form-status.ok{color:#1e7d32}
+.form-status.err{color:#c62828}
 footer{background:var(--grad);color:#fff;padding:44px 0 34px;font-family:system-ui,sans-serif}
 footer .wrap{display:flex;gap:32px;align-items:center;justify-content:space-between;flex-wrap:wrap}
 footer img{height:64px;width:auto}
@@ -103,7 +117,10 @@ footer .legal{width:100%;margin-top:22px;padding-top:16px;border-top:1px solid r
 <!-- GTM: snippet noscript tutaj (body) -->
 <header class="top">
   <div class="wrap">
-    {{topLogoHtml}}
+    <div class="brand-box">
+      <img src="/assets/fenix-horse-logo.svg" alt="Fenix Horse">
+      <span class="slogan">Nasza wiedza — Twój sukces</span>
+    </div>
     <a href="https://fenix.net.pl">fenix.net.pl →</a>
   </div>
 </header>
@@ -158,13 +175,85 @@ footer .legal{width:100%;margin-top:22px;padding-top:16px;border-top:1px solid r
     <div class="addr">
       <strong>Fenix Horse Sp. z o.o.</strong> — Hurtownia Artykułów Jeździeckich<br>
       ul. Topolowa 2a, 62-090 Bytkowo<br>
-      tel. <a href="tel:+48887500749">+48 887 500 749</a> · <a href="tel:+48662282472">+48 662 282 472</a> · <a href="mailto:info@fenix.net.pl">info@fenix.net.pl</a><br>
+      tel. <a href="tel:+48887500749">+48 887 500 749</a> · <a href="tel:+48662282472">+48 662 282 472</a> · <a href="#" data-open-form>napisz do nas</a><br>
       pon.–pt. 8:00–16:00 · <a href="https://fenix.net.pl">fenix.net.pl</a>
     </div>
     <div class="legal">KRS 0000291008 · Sąd Rejonowy Poznań-Nowe Miasto i Wilda</div>
   </div>
 </footer>
 
+<div class="modal-bg" id="modal-formularz" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="form-title">
+    <button class="modal-close" aria-label="Zamknij">&times;</button>
+    <h3 id="form-title">Napisz do nas</h3>
+    <p>Odpowiadamy zwykle w ciągu jednego dnia roboczego.</p>
+    <form id="contact-form" novalidate>
+      <input name="name" placeholder="Imię i nazwisko" required>
+      <input name="email" type="email" placeholder="Twój adres e-mail" required>
+      <input name="phone" type="tel" placeholder="Telefon (opcjonalnie)">
+      <textarea name="message" rows="5" placeholder="Twoja wiadomość" required></textarea>
+      <label class="rodo"><input type="checkbox" name="rodo" required><span>Wyrażam zgodę na przetwarzanie moich danych osobowych przez Fenix Horse Sp. z o.o. z siedzibą w Bytkowie w celu obsługi niniejszego zapytania. Podanie danych jest dobrowolne.</span></label>
+      <button type="submit" class="cta">Wyślij wiadomość</button>
+      <p class="form-status" hidden></p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var FORM_KEY = '{{formKey}}';
+  var SUBJECT = 'Zapytanie z landing page: {{heroTitle}}';
+  var bg = document.getElementById('modal-formularz');
+  var form = document.getElementById('contact-form');
+  var status = form.querySelector('.form-status');
+  document.querySelectorAll('[data-open-form]').forEach(function(el){
+    el.addEventListener('click', function(e){
+      e.preventDefault();
+      bg.hidden = false;
+      window.dataLayer && window.dataLayer.push({event:'contact_form_open'});
+    });
+  });
+  function close(){ bg.hidden = true; }
+  bg.querySelector('.modal-close').addEventListener('click', close);
+  bg.addEventListener('click', function(e){ if(e.target === bg) close(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!form.reportValidity()) return;
+    var d = new FormData(form);
+    if(!FORM_KEY){
+      // brak klucza wysyłki -> otwórz program pocztowy z gotową treścią
+      var body = 'Od: ' + d.get('name') + ' <' + d.get('email') + '>' +
+        (d.get('phone') ? ', tel. ' + d.get('phone') : '') + '%0D%0A%0D%0A' +
+        encodeURIComponent(d.get('message'));
+      location.href = 'mailto:info@fenix.net.pl?subject=' + encodeURIComponent(SUBJECT) + '&body=' + body;
+      return;
+    }
+    var btn = form.querySelector('button[type=submit]');
+    btn.disabled = true; btn.textContent = 'Wysyłanie…';
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+      body: JSON.stringify({
+        access_key: FORM_KEY, subject: SUBJECT, from_name: 'Landing Fenix Horse',
+        name: d.get('name'), email: d.get('email'), phone: d.get('phone') || '-', message: d.get('message')
+      })
+    }).then(function(r){ return r.json(); }).then(function(res){
+      status.hidden = false;
+      if(res.success){
+        status.className = 'form-status ok';
+        status.textContent = 'Dziękujemy! Wiadomość została wysłana — odezwiemy się wkrótce.';
+        form.querySelectorAll('input,textarea,button').forEach(function(el){ el.disabled = true; });
+        window.dataLayer && window.dataLayer.push({event:'contact_form_submit'});
+      } else { throw new Error(); }
+    }).catch(function(){
+      status.hidden = false;
+      status.className = 'form-status err';
+      status.textContent = 'Nie udało się wysłać. Zadzwoń: +48 887 500 749.';
+      btn.disabled = false; btn.textContent = 'Wyślij wiadomość';
+    });
+  });
+})();
+</script>
 {{mapScript}}
 </body>
 </html>
