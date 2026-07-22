@@ -18,29 +18,34 @@ Konto Ads: **764-021-0990** · Strona docelowa: **https://lp.fenix.net.pl/nutri-
 
 ## Grupy reklam, słowa kluczowe (dopasowanie do wyrażenia = "...")
 
-**AG1 — Marka / produkt**
-- `[nutri-gard]` (dopasowanie ścisłe)
-- `"nutri gard koń"`
-- `"foran nutri-gard"`
-- `"foran equine"`
+> Nacisk na wrzody + kolkę/dietę po kolce (decyzja Michała 22.07) — wysokie intencje,
+> spójne z badaniem NG (kwasica jelita grubego powiązana z kolką). Frazy targetują
+> intencję chorobową; TEKST reklamy pozostaje zgodny z prawem (bez „leczy").
 
-**AG2 — Trawienie / żołądek**
-- `"suplement na trawienie dla konia"`
-- `"suplement na żołądek konia"`
-- `"probiotyk dla konia"`
-- `"prebiotyk dla konia"`
+**AG1 — Wrzody / żołądek**
+- `"wrzody żołądka u konia"`
+- `"suplement na wrzody dla konia"`
+- `"wrzody u konia dieta"`
+- `"koń wrzody żołądka"`
 - `"zakwaszenie żołądka u konia"`
 
-**AG3 — Objawy / problemy**
-- `"koń nie chce jeść"`
-- `"słaby apetyt u konia"`
-- `"koń traci kondycję"`
-- `"suplement na wrzody u koni"`
+**AG2 — Kolka / dieta po kolce**
+- `"dieta po kolce u konia"`
+- `"żywienie konia po kolce"`
+- `"co dawać koniowi po kolce"`
+- `"suplement po kolce u konia"`
+- `"kolka u konia dieta"`
 
-**AG4 — Konie sportowe**
-- `"suplement dla koni sportowych"`
-- `"suplement dla konia wyścigowego"`
-- `"wsparcie jelit konia"`
+**AG3 — Trawienie / jelita**
+- `"suplement na trawienie dla konia"`
+- `"zdrowie jelit konia"`
+- `"probiotyk dla konia"`
+- `"prebiotyk dla konia"`
+
+**AG4 — Marka**
+- `[nutri-gard]` (dopasowanie ścisłe)
+- `"foran nutri-gard"`
+- `"foran equine"`
 
 ## Wykluczające słowa kluczowe (dodaj na poziomie kampanii)
 
