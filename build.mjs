@@ -14,7 +14,7 @@ const storesSectionTpl = (data) => `
     <div class="stores-grid">
       <div id="map"></div>
       <div class="store-list">${(data.stores || []).map(s =>
-        `<div class="store"><h3>${s.name}</h3><p>${s.address}</p><a href="tel:${s.phone.replace(/\s/g, '')}">${s.phone}</a>${s.email ? ` · <a href="mailto:${s.email}">${s.email}</a>` : ''}</div>`
+        `<div class="store">${s.logo ? `<img class="store-logo" src="${s.logo}" alt="" loading="lazy">` : ''}<h3>${s.name}</h3><p>${s.address}</p><a href="tel:${s.phone.replace(/\s/g, '')}">${s.phone}</a>${s.email ? ` · <a href="mailto:${s.email}">${s.email}</a>` : ''}${s.www ? ` · <a href="${s.www}" target="_blank" rel="noopener">${s.www.replace(/^https?:\/\/(www\.)?|\/$/g, '')}</a>` : ''}</div>`
       ).join('\n')}</div>
     </div>
   </div>
@@ -72,6 +72,7 @@ const contactStripTpl = (c) => `
 const files = readdirSync(join(root, 'content')).filter(f => f.endsWith('.json'));
 for (const file of files) {
   const data = JSON.parse(readFileSync(join(root, 'content', file), 'utf8'));
+  if (data.stores) data.stores.sort((a, b) => a.name.localeCompare(b.name, 'pl'));
 
   const featuresHtml = (data.features || []).map(f =>
     `<div class="feature"><h3>${f.title}</h3><p>${f.text}</p></div>`
