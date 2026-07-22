@@ -74,11 +74,14 @@ const researchTpl = (r) => `
   <div class="wrap">
     <h2>${r.heading}</h2>
     <p class="prose">${r.intro}</p>
+    ${r.photo ? `<img class="research-photo" src="${r.photo.src}" alt="${r.photo.alt || ''}" loading="lazy">` : ''}
     <div class="research-stats">${r.stats.map(s =>
       `<div class="stat"><div class="val">${s.value}</div><p>${s.label}</p></div>`).join('\n')}</div>
     <div class="research-compare">${r.compare.map(c =>
       `<div class="cmp${c.good ? ' good' : ''}"><h3>${c.title}</h3><ul>${c.points.map(p => `<li>${p}</li>`).join('')}</ul></div>`).join('\n')}</div>
     <div class="research-conclusion">${r.conclusion}</div>
+    ${r.logos ? `<div class="research-logos"><p>${r.logosLabel || 'Za badaniem stoją'}</p><div class="chips">${r.logos.map(l =>
+      `<div class="chip"><img src="${l.src}" alt="${l.alt}" loading="lazy"></div>`).join('')}</div></div>` : ''}
     <p class="research-source">${r.source}</p>
   </div>
 </section>`;

@@ -41,6 +41,13 @@
   "research": {
     "heading": "Skuteczność potwierdzona w badaniu terenowym",
     "intro": "Pilotażowe badanie terenowe na koniach wyścigowych pełnej krwi angielskiej (Chantilly, Francja) sprawdziło, czy NUTRI-GARD ogranicza kwasicę jelita grubego — powiązaną z owrzodzeniami, bólem i słabym wykorzystaniem paszy.",
+    "photo": { "src": "/assets/nutri-gard-badanie.jpg", "alt": "Koń wyścigowy pełnej krwi angielskiej" },
+    "logosLabel": "Badanie zrealizowane przy udziale",
+    "logos": [
+      { "src": "/assets/logos/ucd.svg", "alt": "University College Dublin — School of Veterinary Medicine" },
+      { "src": "/assets/logos/redmills.png", "alt": "Connolly's Red Mills" },
+      { "src": "/assets/foran-logo.png", "alt": "Foran Equine" }
+    ],
     "stats": [
       { "value": "56 dni", "label": "czas trwania badania, przy niezmienionej diecie i treningu" },
       { "value": "34", "label": "konie wyścigowe z dwóch ośrodków treningowych (17 suplementowanych + 17 grupa kontrolna)" },

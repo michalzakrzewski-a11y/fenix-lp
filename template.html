@@ -68,7 +68,15 @@ h2::after{content:"";display:block;width:56px;height:3px;background:var(--accent
 .tbl tr:last-child td{border-bottom:none}
 .tbl td:last-child{text-align:right;font-weight:600;color:var(--dark);white-space:nowrap}
 .tbl .note{font-family:system-ui,sans-serif;font-size:.83rem;color:var(--muted);margin-top:12px}
-.research{background:var(--panel)}
+.research{background:var(--grad);color:#fff}
+.research h2{color:#fff}
+.research .prose{opacity:.92;max-width:70ch}
+.research-photo{width:100%;height:auto;border-radius:14px;margin-top:26px;display:block}
+.research-logos{margin-top:30px}
+.research-logos p{font-family:system-ui,sans-serif;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin-bottom:12px}
+.research-logos .chips{display:flex;gap:14px;flex-wrap:wrap}
+.research-logos .chip{background:#fff;border-radius:10px;padding:12px 20px;display:flex;align-items:center}
+.research-logos .chip img{height:40px;width:auto;max-width:170px;object-fit:contain}
 .research-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px;margin:30px 0 8px}
 .stat{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px 22px}
 .stat .val{font-family:system-ui,sans-serif;font-size:1.9rem;font-weight:800;color:var(--dark);line-height:1.15}
@@ -82,8 +90,8 @@ h2::after{content:"";display:block;width:56px;height:3px;background:var(--accent
 .cmp li{font-family:system-ui,sans-serif;font-size:.92rem;color:var(--ink);padding-left:24px;position:relative;margin-bottom:8px}
 .cmp.good li::before{content:"✓";color:var(--accent);position:absolute;left:0;font-weight:700}
 .cmp:not(.good) li::before{content:"—";color:var(--muted);position:absolute;left:0}
-.research-conclusion{margin-top:26px;background:#fff;border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:20px 24px;font-size:1.02rem}
-.research-source{font-family:system-ui,sans-serif;font-size:.8rem;color:var(--muted);margin-top:16px}
+.research-conclusion{margin-top:26px;background:#fff;color:var(--ink);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:20px 24px;font-size:1.02rem}
+.research-source{font-family:system-ui,sans-serif;font-size:.8rem;color:rgba(255,255,255,.65);margin-top:18px}
 @media(max-width:820px){.research-compare{grid-template-columns:1fr}}
 .brand{background:var(--panel)}
 .stores-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:30px;align-items:start}
