@@ -102,6 +102,10 @@ for (const file of files) {
     .replaceAll('{{galleryHtml}}', galleryHtml)
     .replaceAll('{{featuresHtml}}', featuresHtml)
     .replaceAll('{{tablesHtml}}', tablesHtml)
+    .replaceAll('{{heroWrapClass}}', data.heroImage ? '' : ' solo')
+    .replaceAll('{{topBannerHtml}}', data.topBanner
+      ? `<div class="top-banner"><img src="${data.topBanner}" alt="${data.topBannerAlt || data.heroTitle}" fetchpriority="high"></div>`
+      : '')
     .replaceAll('{{themeCss}}', data.theme ? themeCssTpl(data.theme) : '')
     .replaceAll('{{contactStrip}}', data.contact ? contactStripTpl(data.contact) : '')
     .replaceAll('{{heroNoteHtml}}', data.heroNote ? `<p class="hero-note">${data.heroNote}</p>` : '')
