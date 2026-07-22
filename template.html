@@ -285,6 +285,27 @@ footer .legal{width:100%;margin-top:22px;padding-top:16px;border-top:1px solid r
   });
 })();
 </script>
+<script>
+// Pomiar kliknięć -> dataLayer (odbierze GTM): telefony, e-maile, WWW sklepów, CTA, wyjścia na fenix.net.pl
+document.addEventListener('click', function(e){
+  var a = e.target.closest('a'); if(!a) return;
+  window.dataLayer = window.dataLayer || [];
+  var href = a.getAttribute('href') || '';
+  var store = a.closest('.store');
+  var popup = a.closest('.leaflet-popup-content');
+  var typ = href.indexOf('tel:') === 0 ? 'telefon' : href.indexOf('mailto:') === 0 ? 'email' : 'www';
+  if (store || popup) {
+    var nameEl = store ? store.querySelector('h3') : popup.querySelector('b');
+    dataLayer.push({event: 'store_contact_click', store_name: nameEl ? nameEl.textContent : '?', contact_type: typ});
+  } else if (href.indexOf('tel:') === 0) {
+    dataLayer.push({event: 'tel_click', tel_number: href.slice(4)});
+  } else if (a.dataset.gtm === 'cta-hero') {
+    dataLayer.push({event: 'cta_hero_click'});
+  } else if (href.indexOf('fenix.net.pl') > -1) {
+    dataLayer.push({event: 'outbound_fenix_click'});
+  }
+});
+</script>
 {{mapScript}}
 </body>
 </html>
