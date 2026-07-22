@@ -129,7 +129,7 @@ for (const file of files) {
   let html = template;
   if (!hasTables) html = html.replace(/<section id="dawkowanie">[\s\S]*?<\/section>/, '');
   html = html
-    .replaceAll('{{formKey}}', data.formKey || '')
+    .replaceAll('{{formEmail}}', data.formEmail || '')
     .replaceAll('{{researchSection}}', data.research ? researchTpl(data.research) : '')
     .replaceAll('{{heroImageHtml}}', data.heroImage
       ? `<div class="hero-img"><img src="${data.heroImage}" alt="${data.heroImageAlt || data.heroTitle}" fetchpriority="high"></div>`

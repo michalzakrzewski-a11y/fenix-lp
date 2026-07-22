@@ -292,7 +292,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <script>
 (function(){
-  var FORM_KEY = '{{formKey}}';
+  var FORM_EMAIL = '{{formEmail}}';
   var SUBJECT = 'Zapytanie z landing page: {{heroTitle}}';
   var bg = document.getElementById('modal-formularz');
   var form = document.getElementById('contact-form');
@@ -312,8 +312,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     e.preventDefault();
     if(!form.reportValidity()) return;
     var d = new FormData(form);
-    if(!FORM_KEY){
-      // brak klucza wysyłki -> otwórz program pocztowy z gotową treścią
+    if(!FORM_EMAIL){
+      // brak adresu docelowego -> otwórz program pocztowy z gotową treścią
       var body = 'Od: ' + d.get('name') + ' <' + d.get('email') + '>' +
         (d.get('phone') ? ', tel. ' + d.get('phone') : '') + '%0D%0A%0D%0A' +
         encodeURIComponent(d.get('message'));
@@ -322,16 +322,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
     var btn = form.querySelector('button[type=submit]');
     btn.disabled = true; btn.textContent = 'Wysyłanie…';
-    fetch('https://api.web3forms.com/submit', {
+    fetch('https://formsubmit.co/ajax/' + FORM_EMAIL, {
       method: 'POST',
       headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
       body: JSON.stringify({
-        access_key: FORM_KEY, subject: SUBJECT, from_name: 'Landing Fenix Horse',
-        name: d.get('name'), email: d.get('email'), phone: d.get('phone') || '-', message: d.get('message')
+        _subject: SUBJECT, _template: 'table', _captcha: 'false',
+        'Imię i nazwisko': d.get('name'), 'E-mail': d.get('email'),
+        'Telefon': d.get('phone') || '-', 'Wiadomość': d.get('message'),
+        'Zgoda RODO': 'TAK', 'Landing': location.href
       })
     }).then(function(r){ return r.json(); }).then(function(res){
       status.hidden = false;
-      if(res.success){
+      if(res.success === true || res.success === 'true'){
         status.className = 'form-status ok';
         status.textContent = 'Dziękujemy! Wiadomość została wysłana — odezwiemy się wkrótce.';
         form.querySelectorAll('input,textarea,button').forEach(function(el){ el.disabled = true; });
