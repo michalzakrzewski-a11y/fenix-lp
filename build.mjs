@@ -72,7 +72,7 @@ const contactStripTpl = (c) => `
 const files = readdirSync(join(root, 'content')).filter(f => f.endsWith('.json'));
 for (const file of files) {
   const data = JSON.parse(readFileSync(join(root, 'content', file), 'utf8'));
-  if (data.stores) data.stores.sort((a, b) => a.name.localeCompare(b.name, 'pl'));
+  // kolejność sklepów = kolejność w pliku treści (bez automatycznego sortowania)
 
   const featuresHtml = (data.features || []).map(f =>
     `<div class="feature"><h3>${f.title}</h3><p>${f.text}</p></div>`
